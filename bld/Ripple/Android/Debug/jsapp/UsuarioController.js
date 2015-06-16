@@ -63,8 +63,15 @@
             $rootScope.usuarioPerfil_nome = $scope.retorno[0].perfil_atual;
             $rootScope.usuarioPerfil_id = $scope.retorno[0].usp_id;
 
+
+            $rootScope.checked = true;
             $rootScope.menu1 = false;
             $rootScope.menu2 = true;
+
+            sessionStorage.setItem('idUsuario', $scope.retorno[0].usu_id);
+            sessionStorage.setItem('usp_id', $scope.retorno[0].usp_id);
+
+            
 
             console.log($scope.retorno);
 
