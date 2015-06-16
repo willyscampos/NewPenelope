@@ -1,0 +1,29 @@
+﻿<div class="scrollable" ng-controller="VendasController">
+    <div class="scrollable-content">
+        <div class="section">
+            <p>
+                {{saudacao}}
+                {{nomeUsuario}}
+            </p>
+
+            <div class="list-group-item list-group-item-home media">
+                <!--get-remote-data-function="FindCliente"-->
+                <div class="row">
+                    <div class="col-md-2">
+                        <div angucomplete-alt id="clientes" placeholder="Identifique o Cliente" pause="200"
+                             selected-object="selectedCliente"
+                             remote-api-handler="searchAPI"
+                             title-field="CLI_NOME" minlength="2"
+                             text-no-results="Novo Cliente"
+                             input-changed="inputChanged"
+                             input-class="form-control form-control-small" match-class="highlight">
+                        </div>
+                        <i class="fa fa-plus-square fa-2x brown right" ng-show="new_cliente" ng-click="registraNovoCliente()"></i>
+                        <i class="fa fa-arrow-circle-right fa-2x brown right" ng-show="old_cliente" ng-click="registraVenda()"></i>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,63 @@
+﻿<div class="scrollable" ng-controller="listParcelaVendaClienteController">
+    <div class="scrollable-content">
+        <form class="form-group" ng-init="listParcelaVendaCliente()">
+            <div class="list-group-item list-group-item-home media">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="xx">Cliente</label>
+                            <input type="text" class="form-control" ng-model="cliente_nome" placeholder="" disabled>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="xx">Data da Venda</label>
+                            <input type="text" class="form-control" ng-model="data_pedido" id="date" placeholder="" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="xx">Valor Total</label>
+                            <input type="text" class="form-control" ng-model="valor_pedido" placeholder="" disabled>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="xx">Pagamento</label>
+                            <input type="text" class="form-control" ng-model="forma_pagamento" placeholder="" disabled>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <div class="form-group">
+                                <a href="#/gerenciarVenda" class="btn btn-primary">voltar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </form>
+
+        <table class="table table-hover">
+            <tr>
+                <th>Valor</th>
+                <th>Vencimento</th>
+                <th>Pagamento</th>
+            </tr>
+            <tr ng-repeat="pParcela in listParcelaVendaCli">
+                <td>{{pParcela.VALOR_PARCELA | currency : "R$ "}}</td>
+                <td>{{pParcela.LVP_DATA_VENCIMENTO | date:'dd/MM/yyyy'}}</td>
+                <td>
+                    <ui-switch ng-model='pParcela.LVP_STATUS_PAGAMENTO' ng-change="pagamento(pParcela)"></ui-switch>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
